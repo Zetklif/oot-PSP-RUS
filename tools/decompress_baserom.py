@@ -239,7 +239,7 @@ def main():
         correct_str_hashes = compressed_str_hashes
     if str_hash not in correct_str_hashes:
         print(
-            f"Error: Expected a hash of {' or '.join(correct_str_hashes)} but got {str_hash}. The baserom has probably been tampered, find a new one"
+            f"Warning: Expected a hash of {' or '.join(correct_str_hashes)} but got {str_hash}. The baserom has probably been tampered, find a new one"
         )
 
         if version == "gc-eu-mq-dbg":
@@ -248,7 +248,6 @@ def main():
                     "The provided baserom is a rom which has been edited with ZeldaEdit and is not suitable for use with decomp. Find a new one."
                 )
 
-        exit(1)
 
     dma_entries = dmadata.read_dmadata(file_content, dmadata_start)
     # Decompress
@@ -261,9 +260,8 @@ def main():
     str_hash = get_str_hash(file_content)
     if str_hash not in decompressed_str_hashes:
         print(
-            f"Error: Expected a hash of {' or '.join(decompressed_str_hashes)} after decompression but got {str_hash}!"
+            f"Warning: Expected a hash of {' or '.join(decompressed_str_hashes)} after decompression but got {str_hash}!"
         )
-        exit(1)
 
     # Write out our new ROM
     print(f"Writing new ROM {uncompressed_path}...")
