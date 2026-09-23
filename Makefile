@@ -1852,7 +1852,7 @@ endif
 PSP_PORT_ICON0 := assets/psp/ICON0.PNG
 
 $(PSP_PORT_PBP): $(PSP_PORT_EBOOT_PAYLOAD) $(PSP_PORT_ICON0)
-	mksfoex -d MEMSIZE=1 "OOT PSP Port" $(PSP_PORT_BUILD_DIR)/PARAM.SFO
+	mksfoex -d MEMSIZE=1 "The Legend of Zelda: Ocarina of Time" $(PSP_PORT_BUILD_DIR)/PARAM.SFO
 	pack-pbp $@ $(PSP_PORT_BUILD_DIR)/PARAM.SFO $(PSP_PORT_ICON0) NULL NULL NULL NULL $< NULL
 
 psp-port-clean:
